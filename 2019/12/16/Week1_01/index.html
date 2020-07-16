@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java学习笔记-第一阶段-第01周第1天 | 奔跑的沙砾</title><meta name="description" content="第一阶段第一周    Day01一. 软件开发基础1.什么是JavaEE？ 2.常用的开发语言C、C++：底层开发、智能家具、机器人  Python：人工智能、爬虫  HTML5：网页  Java：JavaEE、Android3.什么是前端？什么是后端  二. Java开发环境搭建1.什么是JDK​        JDK：Java开发工具包     ​        JRE：Java运行时环境 2"><meta name="keywords" content="java"><meta name="author" content="CaiX"><meta name="copyright" content="CaiX"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://caix.life/2019/12/16/Week1_01/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="Java学习笔记-第一阶段-第01周第1天"><meta property="og:url" content="http://caix.life/2019/12/16/Week1_01/"><meta property="og:site_name" content="奔跑的沙砾"><meta property="og:description" content="第一阶段第一周    Day01一. 软件开发基础1.什么是JavaEE？ 2.常用的开发语言C、C++：底层开发、智能家具、机器人  Python：人工智能、爬虫  HTML5：网页  Java：JavaEE、Android3.什么是前端？什么是后端  二. Java开发环境搭建1.什么是JDK​        JDK：Java开发工具包     ​        JRE：Java运行时环境 2"><meta property="og:image" content="http://caix.life/img/hexo-theme-butterfly-doc-cover.jpg"><meta property="article:published_time" content="2019-12-16T13:29:49.000Z"><meta property="article:modified_time" content="2020-07-16T08:32:53.106Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="prev" title="Java学习笔记-第一阶段-第01周第2天" href="http://caix.life/2019/12/17/Week1_02/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: true,
+  fancybox: true,
+  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-center"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: true    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="奔跑的沙砾" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">4</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">1</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">1</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat"></i><span> 影音</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一阶段"><span class="toc-number">1.</span> <span class="toc-text">第一阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一周-Day01"><span class="toc-number">1.1.</span> <span class="toc-text">第一周    Day01</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一-软件开发基础"><span class="toc-number">1.2.</span> <span class="toc-text">一. 软件开发基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是JavaEE？"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.什么是JavaEE？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-常用的开发语言"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.常用的开发语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-什么是前端？什么是后端"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.什么是前端？什么是后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.2.4.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-Java开发环境搭建"><span class="toc-number">1.3.</span> <span class="toc-text">二. Java开发环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是JDK"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.什么是JDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-安装JDK"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.安装JDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-配置环境变量"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-检测环境变量是否配置成功"><span class="toc-number">1.3.4.</span> <span class="toc-text">4.检测环境变量是否配置成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-编写第一个Java程序"><span class="toc-number">1.4.</span> <span class="toc-text">三. 编写第一个Java程序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-常用命令"><span class="toc-number">1.4.1.</span> <span class="toc-text">1.常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在记事本中编写java代码"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.在记事本中编写java代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-在cmd命令窗口编译、执行"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.在cmd命令窗口编译、执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-程序编译执行过程"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.程序编译执行过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-详解代码"><span class="toc-number">1.4.5.</span> <span class="toc-text">5.详解代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-代码细节"><span class="toc-number">1.4.6.</span> <span class="toc-text">6.代码细节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-java编码规范"><span class="toc-number">1.4.7.</span> <span class="toc-text">7.java编码规范</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-扩展知识"><span class="toc-number">1.5.</span> <span class="toc-text">四. 扩展知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Path的作用"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.Path的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Java跨平台特性"><span class="toc-number">1.5.2.</span> <span class="toc-text">2.Java跨平台特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Java体系划分"><span class="toc-number">1.5.3.</span> <span class="toc-text">3.Java体系划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Java版本"><span class="toc-number">1.5.4.</span> <span class="toc-text">4.Java版本</span></a></li></ol></li></ol></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/hexo-theme-butterfly-doc-cover.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">奔跑的沙砾</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat"></i><span> 影音</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/photos/"><i class="fa-fw fa fa-images"></i><span> 照片</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">Java学习笔记-第一阶段-第01周第1天</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2019-12-16 21:29:49"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2019-12-16</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-07-16 16:32:53"><i class="fas fa-history fa-fw"></i> 更新于 2020-07-16</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">开发技术</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta__icon"></i><span>字数总计:</span><span class="word-count">1.4k</span><span class="post-meta__separator">|</span><i class="far fa-clock fa-fw post-meta__icon"></i><span>阅读时长: 5 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="第一阶段"><a href="#第一阶段" class="headerlink" title="第一阶段"></a>第一阶段</h1><h2 id="第一周-Day01"><a href="#第一周-Day01" class="headerlink" title="第一周    Day01"></a>第一周    Day01</h2><h2 id="一-软件开发基础"><a href="#一-软件开发基础" class="headerlink" title="一. 软件开发基础"></a>一. 软件开发基础</h2><h3 id="1-什么是JavaEE？"><a href="#1-什么是JavaEE？" class="headerlink" title="1.什么是JavaEE？"></a>1.什么是JavaEE？</h3><p><img src= "/img/loading.gif" data-src="https://file.moetu.org/images/2019/12/16/1.javaee327291258fc6c5da.png" alt="什么是javaee"></p>
+<h3 id="2-常用的开发语言"><a href="#2-常用的开发语言" class="headerlink" title="2.常用的开发语言"></a>2.常用的开发语言</h3><pre><code>C、C++：底层开发、智能家具、机器人
+
+Python：人工智能、爬虫
+
+HTML5：网页
+
+Java：JavaEE、Android</code></pre><h3 id="3-什么是前端？什么是后端"><a href="#3-什么是前端？什么是后端" class="headerlink" title="3.什么是前端？什么是后端"></a>3.什么是前端？什么是后端</h3><h3 id=""><a href="#" class="headerlink" title=""></a><img src= "/img/loading.gif" data-src="https://file.moetu.org/images/2019/12/16/3fefe8c187b7594c1e8ba58612edf6b6194c95b74b0dae25.png" alt="前后端讲解图"></h3><a id="more"></a>
+
+<h2 id="二-Java开发环境搭建"><a href="#二-Java开发环境搭建" class="headerlink" title="二. Java开发环境搭建"></a>二. Java开发环境搭建</h2><h3 id="1-什么是JDK"><a href="#1-什么是JDK" class="headerlink" title="1.什么是JDK"></a>1.什么是JDK</h3><p>​        <strong>JDK</strong>：Java开发工具包    </p>
+<p>​        <strong>JRE</strong>：Java运行时环境</p>
+<h3 id="2-安装JDK"><a href="#2-安装JDK" class="headerlink" title="2.安装JDK"></a>2.安装JDK</h3><p><strong>注意：</strong></p>
+<ol>
+<li><p>如果你仅仅运行java程序，只用安装JRE即可，但是你要编写Java程序，就必须安装JDK和JRE</p>
+</li>
+<li><p>安装路径建议用默认路径</p>
+</li>
+<li><p>安装后不会像QQ有开启软件的图标</p>
+</li>
+<li><p>要想替换原来已经安装好的JDK，就要先卸载掉，再安装</p>
+</li>
+</ol>
+<h3 id="3-配置环境变量"><a href="#3-配置环境变量" class="headerlink" title="3.配置环境变量"></a>3.配置环境变量</h3><p><strong>操作步骤</strong>：计算机(我的电脑)右键属性 –&gt; 高级系统设置的高级卡页 –&gt; 环境变量<br>用户变量 与 系统变量的<strong>区别</strong>:<br>        用户变量：作用于当前用户<br>        系统变量：作用于该系统的所有用户<br>需要设置的内容：</p>
+<pre><code>  变量名                           变量值    
+JAVA_HOME            C:\Program Files\Java\jdk1.8.0_144
+  Path                       %JAVA_HOME%\bin</code></pre><h3 id="4-检测环境变量是否配置成功"><a href="#4-检测环境变量是否配置成功" class="headerlink" title="4.检测环境变量是否配置成功"></a>4.检测环境变量是否配置成功</h3><p>黑窗口打开方式：Win键+R –&gt; 输入cmd –&gt; 回车 –&gt; 输入以下指令<br>        javac -version<br>        java -version</p>
+<h2 id="三-编写第一个Java程序"><a href="#三-编写第一个Java程序" class="headerlink" title="三. 编写第一个Java程序"></a>三. 编写第一个Java程序</h2><h3 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1.常用命令"></a>1.常用命令</h3><pre><code>cd \            --&gt;        退回到根目录
+c:                --&gt;        进入C盘
+cd 文件夹名      --&gt;      进入相应的文件夹
+dir             --&gt;        遍历出该文件夹下所有的文件
+cls             --&gt;        清空命令窗口内的内容
+cd..            --&gt;     回到上层路径</code></pre><h3 id="2-在记事本中编写java代码"><a href="#2-在记事本中编写java代码" class="headerlink" title="2.在记事本中编写java代码"></a>2.在记事本中编写java代码</h3><p><strong>工作空间</strong> ：本质意义上就是个文件夹，用来存放我们写好的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"HelloWorld...1"</span>);</span><br><span class="line">		System.out.println(<span class="string">"HelloWorld...2"</span>);</span><br><span class="line">		System.out.println(<span class="string">"HelloWorld...3"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-在cmd命令窗口编译、执行"><a href="#3-在cmd命令窗口编译、执行" class="headerlink" title="3.在cmd命令窗口编译、执行"></a>3.在cmd命令窗口编译、执行</h3><p><strong>javac</strong> –&gt; 将java文件编译成class文件</p>
+<p><strong>java</strong> –&gt;运行class文件</p>
+<pre><code>javac Hello.java -- 编译成class文件
+java Hello -- 运行class文件</code></pre><h3 id="4-程序编译执行过程"><a href="#4-程序编译执行过程" class="headerlink" title="4.程序编译执行过程"></a>4.程序编译执行过程</h3><p><img src= "/img/loading.gif" data-src="https://file.moetu.org/images/2019/12/16/7f7b53a810d4c394b72b38dd6dc7bffd8d8635b31c94178c.png" alt="编译运行过程图"></p>
+<h3 id="5-详解代码"><a href="#5-详解代码" class="headerlink" title="5.详解代码"></a>5.详解代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//公有的类，叫做Hello</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span></span>&#123;<span class="comment">//类头</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//主方法/入口方法/主函数/入口函数：当前代码运行时，JRE就会找到主方法，运行里面的代码</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;方法头</span><br><span class="line">    	<span class="comment">//系统.输出.打印("内容"); -- 系统打印语句</span></span><br><span class="line">		System.out.println(<span class="string">"HelloWorld...1"</span>);</span><br><span class="line">		System.out.println(<span class="string">"HelloWorld...2"</span>);</span><br><span class="line">		System.out.println(<span class="string">"HelloWorld...3"</span>);</span><br><span class="line">	&#125;<span class="comment">//方法尾</span></span><br><span class="line">&#125;<span class="comment">//类尾</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*	</span></span><br><span class="line"><span class="comment">	public--公有 class--类 Hello--类名 static--静态的 void-无返回值 main--方法名</span></span><br><span class="line"><span class="comment">	String--字符串 ps："abc"</span></span><br><span class="line"><span class="comment">	String[] -- 字符串数组 ps：["小明","小王","小白"]</span></span><br><span class="line"><span class="comment">	args--字符串名</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-代码细节"><a href="#6-代码细节" class="headerlink" title="6.代码细节"></a>6.代码细节</h3><ol>
+<li><p>public修饰的类名必须和文件名一致</p>
+</li>
+<li><p>Java是一门大小写敏感的语言</p>
+</li>
+<li><p>括号都是成双成对的</p>
+</li>
+<li><p>方法里的代码都是从上往下执行-顺序执行</p>
+</li>
+<li><p>方法中的代码又叫做执行语句，执行语句用分好结束</p>
+</li>
+</ol>
+<h3 id="7-java编码规范"><a href="#7-java编码规范" class="headerlink" title="7.java编码规范"></a>7.java编码规范</h3><p>1.<strong>书写格式</strong></p>
+<pre><code>使用tab键让代码更有层次感
+
+类 &gt; 方法 &gt; 执行语句</code></pre><p>2.<strong>代码注释</strong></p>
+<pre><code>理解：一个程序员应该有良好的注释习惯，注释-解释给程序员看的</code></pre><p><img src= "/img/loading.gif" data-src="https://file.moetu.org/images/2019/12/16/b405b13fd3c2f651497c6c80cd14d27c22fdd0ea5f55becf.png" alt="代码注释"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	文档注释</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	多行注释</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//单行注释</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="四-扩展知识"><a href="#四-扩展知识" class="headerlink" title="四. 扩展知识"></a>四. 扩展知识</h2><h3 id="1-Path的作用"><a href="#1-Path的作用" class="headerlink" title="1.Path的作用"></a>1.Path的作用</h3><p>应用场景：</p>
+<pre><code>javac Hello.java (编译) -- 底层：运行了%JAVA_HOME%\bin 里的javac.exe
+
+java Hello  (运行)  -- 底层：运行了%JAVA_HOME%\bin 里的java.exe</code></pre><p><strong>Path</strong> – %JAVA_HOME%\bin</p>
+<p>path环境变量的作用：在任何的文件夹中都能运行在path中配置的文件夹里的应用</p>
+<h3 id="2-Java跨平台特性"><a href="#2-Java跨平台特性" class="headerlink" title="2.Java跨平台特性"></a>2.Java跨平台特性</h3><p><img src= "/img/loading.gif" data-src="https://i.loli.net/2019/12/16/3nSUcyfFYpqdubD.png" alt="java跨平台特性.png"></p>
+<h3 id="3-Java体系划分"><a href="#3-Java体系划分" class="headerlink" title="3.Java体系划分"></a>3.Java体系划分</h3><pre><code>JavaSE -- J2SE -- Java标准版本
+
+JavaEE -- J2EE -- Java企业版本
+
+JavaME -- J2ME -- Java微型版本</code></pre><h3 id="4-Java版本"><a href="#4-Java版本" class="headerlink" title="4.Java版本"></a>4.Java版本</h3><p>​    <strong>雇主</strong>：sun（Stanford University Network）—2009年74亿美金卖给oracle公司</p>
+<p>​    <strong>Java之父</strong>：詹姆斯·高斯林 (James Gosling)</p>
+<p><strong>版本变更</strong>:</p>
+<p>​    1995年5月23日，Java语言诞生；</p>
+<p>​    1996年1月，第一个JDK-JDK1.0诞生；</p>
+<p>​    1996年4月，10个最主要的操作系统供应商申明将在其产品中嵌入JAVA技术；</p>
+<p>​    1996年9月，约8.3万个网页应用了JAVA技术来制作；</p>
+<p>​    1997年2月18日，JDK1.1发布；</p>
+<p>​    1997年4月2日，JavaOne会议召开，参与者逾一万人，创当时全球同类会议规模之纪录；</p>
+<p>​    1997年9月，JavaDeveloperConnection社区成员超过十万；</p>
+<p>​    1998年2月，JDK1.1被下载超过2,000,000次；</p>
+<p>​    1998年12月8日，JAVA2企业平台J2EE发布；</p>
+<p>​    1999年6月，SUN公司发布Java的三个版本：标准版、企业版和微型版；</p>
+<p>​    2000年5月8日，JDK1.3发布；</p>
+<p>​    2000年5月29日，JDK1.4发布；</p>
+<p>​    2001年6月5日，NOKIA宣布，到2003年将出售1亿部支持Java的手机；</p>
+<p>​    2001年9月24日，J2EE1.3发布；</p>
+<p>​    2002年2月26日，J2SE1.4发布，自此Java的计算能力有了大幅提升；</p>
+<p>​    2004年9月30日18:00PM，J2SE1.5发布，成为Java语言发展史上的又一里程碑。为了表示该版本的重要性，J2SE1.5更名为Java SE 5.0；</p>
+<p>​    2005年6月，JavaOne大会召开，SUN公司公开Java SE 6。此时，Java的各种版本已经更名，以取消其中的数字“2”：J2EE更名为Java EE，J2SE更名为Java SE，J2ME更名为Java ME；</p>
+<p>​    2006年12月，SUN公司发布JRE6.0；</p>
+<p>​    2009年4月7日Google App Engine开始支持Java；</p>
+<p>​    2009年04月20日，甲骨文74亿美元收购Sun。取得Java的版权；</p>
+<p>​    2010年11月，由于甲骨文对于Java社区的不友善，因此Apache扬言将退出JCP;</p>
+<p>​    2011年7月28日，甲骨文发布Java 7.0的正式版；</p>
+<p>​    2014年3月19日，甲骨文公司发布Java 8.0的正式版</p>
+<p>思考题:</p>
+<p>1.自己手动编写HelloWorld程序，并且通过命令行窗口进行编译和运行</p>
+<p>2.如何理解java的跨平台特性</p>
+<p>3.如何理解JDK,JRE,JVM的相关概念</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">CaiX</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://caix.life/2019/12/16/Week1_01/">http://caix.life/2019/12/16/Week1_01/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://caix.life" target="_blank">奔跑的沙砾</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/java/">java</a></div><div class="post_share"><div class="social-share" data-image="/img/hexo-theme-butterfly-doc-cover.jpg" data-sites="wechat,qq,weibo"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><button class="reward-button"><i class="fas fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.jpg" alt="微信" onclick="window.open('/img/wechat.jpg')"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.jpg" alt="支付宝" onclick="window.open('/img/alipay.jpg')"/><div class="post-qr-code__desc">支付宝</div></li></ul></div></button></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2019/12/17/Week1_02/"><img class="prev-cover" data-src="/img/hexo-theme-butterfly-doc-cover.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Java学习笔记-第一阶段-第01周第2天</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/12/20/Week1_03&04/" title="Java学习笔记-第一阶段-第01周第3天和第4天"><img class="relatedPosts_cover" data-src="/img/hexo-theme-butterfly-doc-cover.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fas fa-history fa-fw"></i> 2019-12-20</div><div class="relatedPosts_title">Java学习笔记-第一阶段-第01周第3天和第4天</div></div></a></div><div class="relatedPosts_item"><a href="/2019/12/17/Week1_02/" title="Java学习笔记-第一阶段-第01周第2天"><img class="relatedPosts_cover" data-src="/img/hexo-theme-butterfly-doc-cover.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fas fa-history fa-fw"></i> 2019-12-20</div><div class="relatedPosts_title">Java学习笔记-第一阶段-第01周第2天</div></div></a></div></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script><script>var requestSetting = function (from,set) {
+  var from = from
+  var setting = set.split(',').filter(function(item){
+  return from.indexOf(item) > -1
+  });
+  setting = setting.length == 0 ? from :setting;
+  return setting
+}
+
+var guestInfo = requestSetting(['nick','mail','link'],'nick,mail')
+var requiredFields = requestSetting(['nick','mail'],'nick,mail')
+
+window.valine = new Valine({
+  el:'#vcomment',
+  appId: '',
+  appKey: '',
+  placeholder: '记得留下你的昵称和邮箱....可以快速收到回复',
+  avatar: 'monsterid',
+  meta: guestInfo,
+  pageSize: '10',
+  lang: 'zh-CN',
+  recordIP: false,
+  serverURLs: '',
+  emojiCDN: '',
+  emojiMaps: "",
+  enableQQ: false,
+  requiredFields: requiredFields
+});</script></div></article></main><footer id="footer" style="background-image: url(/img/hexo-theme-butterfly-doc-cover.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2017 - 2020 By CaiX</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">嗨, 欢迎来到 <a href="https://caix.life/">我的博客</a>!</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fas fa-comments"></i></a><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/third-party/click_heart.js"></script><script src="/js/search/local-search.js"></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script></body></html>
