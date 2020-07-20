@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://caix.life/music/index.html</loc>
+    
+    <lastmod>2020-07-17T04:44:35.055Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://caix.life/2019/12/20/Week1_03&04/</loc>
     
     <lastmod>2020-07-16T08:50:16.880Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://caix.life/photos/index.html</loc>
     
     <lastmod>2020-07-16T07:44:18.592Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://caix.life/music/index.html</loc>
-    
-    <lastmod>2020-07-16T07:44:04.794Z</lastmod>
     
   </url>
   
